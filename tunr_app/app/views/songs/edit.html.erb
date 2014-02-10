@@ -1,0 +1,16 @@
+<!-- edit.html.erb -->
+<h1>Edit <%= @song.name %></h1>
+
+<form action="/artists/<%= @song.artist_id %>/songs/<%= @song.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>Song Name:
+    <input type="text" name="name" /></label>
+
+    <label>Year:
+      <input type="int" name="year" /></label>
+
+
+        <button>Submit Changes</button>
+      </form>

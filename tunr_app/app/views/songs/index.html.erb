@@ -1,0 +1,22 @@
+<!-- index.html.erb -->
+<header>
+  <ul>
+    <li><a href="/artists"> List all Artists </a></li>
+    <li><a href="/artists/<%= params[:artist_id]%>/songs/<%= params[:id] %>/new"/>Add Song </a></li>
+  </ul>
+  <h1> <%= @artist.name %>'s Songs </h1>
+  <ul><% @songs.each do |song| %>
+    <li>Title: <%= song.name %></li>
+    <ul>
+      <li> Year: <%= song.year %></li>
+    
+    <li><a href="/artists/<%= params[:artist_id] %>/songs/<%= song.id %>/edit"/>Edit Song</a></li>
+    <li><form action="/artists/<%= params[:artist_id] %>/songs/<%= song.id %>" method="POST" />
+        <input type="hidden" name="_method" value="DELETE" />
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <button> Delete Song</button></form>
+      </li>
+      </ul>
+    <% end %>
+    
+  </ul>

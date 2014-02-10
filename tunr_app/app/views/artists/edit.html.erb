@@ -1,0 +1,18 @@
+<!-- edit.html.erb -->
+<h1> Edit <%= @artist.name %></h1>
+
+<form action="/artists/<%= @artist.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label>Name:
+    <input type="text" name="name" /></label>
+
+    <label>Photo URL:
+      <input type="url" name="photo_url" /></label>
+
+      <label>Genre:
+        <input type="text" name="genre" /></label>
+
+        <button>Submit Changes</button>
+      </form>

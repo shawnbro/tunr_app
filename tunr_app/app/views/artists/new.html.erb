@@ -1,0 +1,18 @@
+<!-- new.html.erb -->
+<h1>Add Artist</h1>
+<form action="/artists" method="POST">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+  <label> Artist Name:
+    <input type="text" name="name" /> </label>
+
+    <label> Artist Genre:
+      <input type="text" name="genre" /> 
+    </label>
+
+    <label> Artist Photo URL:
+      <input type="url" name="photo_url" /> 
+    </label>
+
+    <button>Submit</button>
+</form>
